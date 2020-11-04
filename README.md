@@ -10,12 +10,12 @@ Your team is tasked to create a set of command-line tools that will automate the
 
 The booking system will be implemented as a set of command-line tools that must satisfy the following criteria, in addition to the requirements below:
 
-    run on the Linux version that you are using on campus
-    take command-line arguments as input
-    it must have a help command that describes the command-line arguments
-    it must provide output either to a file and/or to standard output, so that it can be used by another command-line tool in the system
-    if providing output via standard output, it means the output can also be piped to a file using the linux pipe operators
-    you can choose in what data format you will store any internal data, e.g. json, xml, or something else entirely.
+-   Run on the Linux version that you are using on campus
+-   Take command-line arguments as input
+-   It must have a help command that describes the command-line arguments
+-   It must provide output either to a file and/or to standard output, so that it can be used by another command-line tool in the system
+-    If providing output via standard output, it means the output can also be piped to a file using the linux pipe operators
+ -   You can choose in what data format you will store any internal data, e.g. json, xml, or something else entirely.
 
 ## Requirements
 
