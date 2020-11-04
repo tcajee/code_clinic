@@ -2,7 +2,7 @@
 Module Docstring
 """
 
-__author__ = "JHB Team_19"
+__author__ = "JHB Team_17"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
