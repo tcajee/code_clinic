@@ -11,7 +11,7 @@ f.close()
 setup(
     name='codeclinic',
     version=VERSION,
-    description='WeThinkCode_ Cohort 2020 - Team_17 - C',
+    description='WeThinkCode_ - Team_17 - Code Clinic',
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
     author='Team_17',
