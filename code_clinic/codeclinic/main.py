@@ -1,12 +1,32 @@
 
+import os
+from tinydb import TinyDB
 from cement import App, TestApp, init_defaults
 from cement.core.exc import CaughtSignal
+from cement.utils import fs
 from .core.exc import CodeClinicError
 from .controllers.base import Base
+from .controllers.bookings import Bookings
 
 # configuration defaults
 CONFIG = init_defaults('codeclinic')
-CONFIG['codeclinic']['foo'] = 'bar'
+CONFIG['codeclinic']['db_file'] = '~/.codeclinic/db.json'
+CONFIG['codeclinic']['email'] = 'tcajee@student.wethinkcode.co.za'
+
+def extend_tinydb(app):
+    app.log.info('Extending codeclinic application with TinyDB')
+    db_file = app.config.get('codeclinic', 'db_file')
+
+    # Ensure full path expansion
+    db_file = fs.abspath(db_file)
+    app.log.info(f"Full path to db_file: {db_file}")
+
+    # Ensure parent directory exists
+    db_dir = os.path.dirname(db_file)
+    if not os.path.exists(db_dir):
+        os.makedirs(db_dir)
+
+    app.extend('db', TinyDB(db_file))
 
 
 class CodeClinic(App):
@@ -15,34 +35,40 @@ class CodeClinic(App):
     class Meta:
         label = 'codeclinic'
 
-        # configuration defaults
+        # Configuration defaults
         config_defaults = CONFIG
 
-        # call sys.exit() on close
+        # Call sys.exit() on close
         exit_on_close = True
 
-        # load additional framework extensions
+        # Load additional framework extensions
         extensions = [
             'yaml',
             'colorlog',
             'jinja2',
         ]
 
-        # configuration handler
+        # Configuration handler
         config_handler = 'yaml'
 
-        # configuration file suffix
+        # Configuration file suffix
         config_file_suffix = '.yml'
 
-        # set the log handler
+        # Set the log handler
         log_handler = 'colorlog'
 
         # set the output handler
         output_handler = 'jinja2'
 
-        # register handlers
+        # Register handlers
         handlers = [
-            Base
+            Base,
+            Bookings,
+        ]
+
+        # Register hooks
+        hooks = [
+            ('post_setup', extend_tinydb)
         ]
 
 

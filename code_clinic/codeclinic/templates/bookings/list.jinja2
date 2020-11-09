@@ -1,0 +1,3 @@
+{% for booking in bookings %}
+{{ booking.doc_id }} [{% if booking.state == 'complete' %}X{% else %} {% endif %}] {{ booking.text }}
+{% endfor %}

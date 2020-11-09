@@ -17,7 +17,7 @@ class Base(Controller):
         description = 'WeThinkCode_ - Team_17 - Code_Clinic'
 
         # text displayed at the bottom of --help output
-        epilog = 'Usage: codeclinic command1 --foo bar'
+        epilog = 'Usage: codeclinic command --foo bar'
 
         # controller level arguments. ex: 'codeclinic --version'
         arguments = [
@@ -35,9 +35,9 @@ class Base(Controller):
 
 
     @ex(
-        help='example sub command1',
+        help='Example sub command',
 
-        # sub-command level arguments. ex: 'codeclinic command1 --foo bar'
+        # sub-command level arguments. ex: 'codeclinic command --foo bar'
         arguments=[
             ### add a sample foo option under subcommand namespace
             ( [ '-f', '--foo' ],
@@ -46,7 +46,7 @@ class Base(Controller):
                 'dest' : 'foo' } ),
         ],
     )
-    def command1(self):
+    def example(self):
         """Example sub-command."""
 
         data = {
@@ -57,4 +57,4 @@ class Base(Controller):
         if self.app.pargs.foo is not None:
             data['foo'] = self.app.pargs.foo
 
-        self.app.render(data, 'command1.jinja2')
+        self.app.render(data, 'example.jinja2')
