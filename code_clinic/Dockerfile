@@ -1,5 +1,5 @@
 FROM python:3.6-alpine
-MAINTAINER Team_17 <john.doe@example.com>
+MAINTAINER Team_17 <tcajee@student.wethinkcode.co.za>
 ENV PS1="\[\e[0;33m\]|> codeclinic <| \[\e[1;35m\]\W\[\e[0m\] \[\e[0m\]# "
 
 WORKDIR /src

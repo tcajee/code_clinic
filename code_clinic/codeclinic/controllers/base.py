@@ -4,7 +4,7 @@ from cement.utils.version import get_version_banner
 from ..core.version import get_version
 
 VERSION_BANNER = """
-WeThinkCode_ Cohort 2020 - Team_17 - C %s
+WeThinkCode_ - Team_17 - Code_Clinic %s
 %s
 """ % (get_version(), get_version_banner())
 
@@ -14,7 +14,7 @@ class Base(Controller):
         label = 'base'
 
         # text displayed at the top of --help output
-        description = 'WeThinkCode_ Cohort 2020 - Team_17 - C'
+        description = 'WeThinkCode_ - Team_17 - Code_Clinic'
 
         # text displayed at the bottom of --help output
         epilog = 'Usage: codeclinic command1 --foo bar'

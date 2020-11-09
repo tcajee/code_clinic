@@ -1,4 +1,4 @@
-# WeThinkCode_ Cohort 2020 - Team_17 - C
+# WeThinkCode_ - Team_17 - Code_Clinic
 
 ## Installation
 
